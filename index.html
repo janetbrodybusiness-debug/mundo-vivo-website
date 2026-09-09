@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mundo Vivo — Worlds Beyond Imagination</title>
+  <meta name="description" content="Mundo Vivo — a new kind of aquarium experience.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="approved-page" id="top">
+    <div class="art-wrap">
+      <img
+        class="landing-art"
+        src="assets/approved-landing.png"
+        alt="Mundo Vivo — Worlds Beyond Imagination landing page"
+      >
+
+      <!-- Real launch-list form positioned over the approved artwork -->
+      <form class="launch-form" id="launch-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+        <button type="submit">JOIN THE LAUNCH LIST <span aria-hidden="true">→</span></button>
+      </form>
+
+      <!-- Clickable navigation hotspots over the artwork -->
+      <nav class="hotspots" aria-label="Mundo Vivo navigation">
+        <a class="hot vision" href="#top" aria-label="Our Vision"></a>
+        <a class="hot experience" href="#top" aria-label="The Experience"></a>
+        <a class="hot care" href="#top" aria-label="Care and Guidance"></a>
+        <a class="hot technology" href="#top" aria-label="Technology"></a>
+        <a class="hot community" href="#top" aria-label="Community"></a>
+        <a class="hot partners" href="#top" aria-label="Partners"></a>
+      </nav>
+    </div>
+  </main>
+
+  <!-- Tiny branded fish that follows close to the mouse -->
+  <img
+    id="mouse-fish"
+    class="mouse-fish"
+    src="assets/mouse-follow-fish.png"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <button
+    id="art-toggle"
+    class="art-toggle"
+    type="button"
+    aria-pressed="true"
+    aria-label="Turn interactive fish off"
+  >
+    <span>Interactive art</span>
+    <span class="switch" aria-hidden="true"><span class="knob"></span></span>
+    <strong class="state">ON</strong>
+  </button>
+
+  <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
