@@ -1,4 +1,3 @@
-
 :root {
   --reference-width: 907;
   --reference-height: 1733;
@@ -46,10 +45,6 @@ body {
   pointer-events: none;
 }
 
-/*
-  The exact supplied logo overlays the logo already present in the approved
-  reference. The placement is percentage-based from the 907×1733 artwork.
-*/
 .real-logo {
   position: absolute;
   left: 3.65%;
@@ -64,7 +59,6 @@ body {
   height: auto;
 }
 
-/* Invisible but fully functional link targets over the approved visual */
 .top-hotspots a,
 .hotspot,
 .footer-contact,
@@ -98,7 +92,7 @@ body {
   padding: 0;
   border-radius: 999px;
   overflow: hidden;
-  opacity: 0.01; /* functional real form while preserving pixel-perfect visible artwork */
+  opacity: 0.01;
 }
 .launch-overlay:focus-within {
   opacity: 1;
@@ -147,7 +141,6 @@ body {
   top: 0;
 }
 
-/* Keyboard-accessibility highlight; visually invisible otherwise */
 .top-hotspots a:focus-visible,
 .hotspot:focus-visible,
 .footer-contact:focus-visible,
@@ -158,18 +151,18 @@ body {
   background: rgba(70, 229, 255, .12);
 }
 
-/* Actual Mundo Vivo fish mouse follower */
 .mundo-cursor {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 100;
-  width: clamp(58px, 6.2vw, 105px);
+  width: clamp(52px, 5.4vw, 92px);
   transform: translate3d(-200px,-200px,0);
   pointer-events: none;
   will-change: transform;
-  filter: drop-shadow(0 0 10px rgba(43, 220, 255, .45))
-          drop-shadow(0 0 20px rgba(152, 64, 255, .22));
+  transition: opacity .18s ease;
+  filter: drop-shadow(0 0 9px rgba(43, 220, 255, .42))
+          drop-shadow(0 0 18px rgba(152, 64, 255, .18));
 }
 .mundo-cursor img {
   display: block;
@@ -191,21 +184,43 @@ body {
 
 .motion-toggle {
   position: fixed;
-  right: 16px;
-  bottom: 16px;
+  right: 18px;
+  bottom: 18px;
   z-index: 120;
-  border: 1px solid rgba(95,231,255,.35);
+  min-width: 92px;
+  min-height: 38px;
+  border: 1px solid rgba(95,231,255,.45);
   border-radius: 999px;
-  background: rgba(0,18,34,.72);
-  color: #dffcff;
-  padding: 8px 12px;
+  background: rgba(0,18,34,.82);
+  color: #e9fdff;
+  padding: 9px 14px;
   font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .03em;
   cursor: pointer;
-  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, .22), inset 0 0 18px rgba(82,233,255,.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity .18s ease, border-color .18s ease, transform .18s ease, background .18s ease;
 }
-.motion-toggle[aria-pressed="false"] { opacity: .55; }
+.motion-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(95,231,255,.78);
+  background: rgba(0,28,48,.9);
+}
+.motion-toggle:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+.motion-toggle[aria-pressed="false"] {
+  opacity: .68;
+  border-color: rgba(255,255,255,.22);
+}
 
-body.motion-off .mundo-cursor { display: none; }
+body.motion-off .mundo-cursor {
+  opacity: 0;
+  visibility: hidden;
+}
 
 @keyframes fishFloat {
   0%,100% { transform: rotate(-3deg) translateY(1px); }
@@ -228,9 +243,23 @@ body.motion-off .mundo-cursor { display: none; }
   border:0!important;
 }
 
-@media (hover:none), (pointer:coarse), (prefers-reduced-motion:reduce) {
-  .mundo-cursor,
-  .motion-toggle { display:none!important; }
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto; }
+  .mundo-cursor img,
+  .bubble { animation: none; }
+  .motion-toggle { transition: none; }
+}
+
+@media (hover:none), (pointer:coarse) {
+  .mundo-cursor {
+    width: clamp(52px, 15vw, 78px);
+  }
+  .motion-toggle {
+    right: 12px;
+    bottom: 12px;
+    min-width: 86px;
+    min-height: 42px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -241,5 +270,3 @@ body.motion-off .mundo-cursor { display: none; }
   }
   .form-status { display: none; }
 }
-
-/* Never crop or reflow the approved reference. The complete composition scales as one unit. */
