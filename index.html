@@ -1,98 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#03182D" />
-  <meta name="description" content="Mundo Vivo — Worlds Beyond Imagination. The aquarium is about to evolve." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Mundo Vivo — Worlds Beyond Imagination</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Mundo Vivo — a new kind of aquarium experience.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header" id="top">
-      <a class="brand" href="#top" aria-label="Mundo Vivo home">
-        <span class="brand-mark" aria-hidden="true">◌</span>
-        <span class="brand-copy">
-          <strong>MUNDO <em>VIVO</em></strong>
-          <small>WORLDS BEYOND IMAGINATION</small>
-        </span>
-      </a>
-      <nav class="main-nav" aria-label="Primary navigation">
-        <a href="#top">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+  <main class="approved-page" id="top">
+    <div class="art-wrap">
+      <img
+        class="landing-art"
+        src="assets/approved-landing.png"
+        alt="Mundo Vivo — Worlds Beyond Imagination landing page"
+      >
+
+      <!-- Real launch-list form positioned over the approved artwork -->
+      <form class="launch-form" id="launch-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+        <button type="submit">JOIN THE LAUNCH LIST <span aria-hidden="true">→</span></button>
+      </form>
+
+      <!-- Clickable navigation hotspots over the artwork -->
+      <nav class="hotspots" aria-label="Mundo Vivo navigation">
+        <a class="hot vision" href="#top" aria-label="Our Vision"></a>
+        <a class="hot experience" href="#top" aria-label="The Experience"></a>
+        <a class="hot care" href="#top" aria-label="Care and Guidance"></a>
+        <a class="hot technology" href="#top" aria-label="Technology"></a>
+        <a class="hot community" href="#top" aria-label="Community"></a>
+        <a class="hot partners" href="#top" aria-label="Partners"></a>
       </nav>
-    </header>
+    </div>
+  </main>
 
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-image" aria-hidden="true"></div>
-        <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="hero-content">
-          <p class="eyebrow">A DEEPER KIND OF REALITY</p>
-          <h1 id="hero-title">The aquarium<br>is about to <span>evolve.</span></h1>
-          <p class="hero-copy">Something new is growing beneath the surface.<br>We’re not ready to show you everything. Not yet.</p>
-          <p class="lead-in">Be the first to know.</p>
+  <!-- Tiny branded fish that follows close to the mouse -->
+  <img
+    id="mouse-fish"
+    class="mouse-fish"
+    src="assets/mouse-follow-fish.png"
+    alt=""
+    aria-hidden="true"
+  >
 
-          <form class="launch-form" id="launch-form" novalidate>
-            <label class="sr-only" for="email">Email address</label>
-            <input id="email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
-            <button type="submit">Join the launch list</button>
-          </form>
-          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
-        </div>
-
-        <div class="feature-strip" aria-label="Mundo Vivo features">
-          <article><span>◒</span><div><strong>Natural Beauty</strong><small>Inspired by nature.</small></div></article>
-          <article><span>≈</span><div><strong>Healthier Habitats</strong><small>For thriving aquatic life.</small></div></article>
-          <article><span>◉</span><div><strong>Bigger Possibilities</strong><small>The next generation of aquariums.</small></div></article>
-          <article><span>△</span><div><strong>Worlds Beyond Imagination</strong><small>Imagine without limits.</small></div></article>
-        </div>
-      </section>
-
-      <section class="content-section" id="about">
-        <p class="eyebrow">MUNDO VIVO</p>
-        <h2>Extraordinary living worlds.</h2>
-        <p>We’re reimagining aquarium environments through design, innovation, engineering and uncompromising quality — creating immersive worlds that bring nature, imagination and technology together.</p>
-      </section>
-
-      <section class="contact-section" id="contact">
-        <div>
-          <p class="eyebrow">CONTACT</p>
-          <h2>Build what comes next.</h2>
-        </div>
-        <a href="mailto:hello@mundovivo.com.au">hello@mundovivo.com.au</a>
-      </section>
-    </main>
-  </div>
-
-  <!-- Mouse-follow artwork. Replace the inner SVG with an approved transparent PNG if desired. -->
-  <div class="mouse-art" id="mouse-art" aria-hidden="true">
-    <svg viewBox="0 0 140 90" role="img" aria-label="Mundo Vivo interactive artwork">
-      <defs>
-        <linearGradient id="fishGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#00C6FF"/>
-          <stop offset="0.52" stop-color="#3A78FF"/>
-          <stop offset="1" stop-color="#A855F7"/>
-        </linearGradient>
-      </defs>
-      <path d="M18 46C39 19 82 14 106 38L132 21 123 50 132 72 106 57C80 80 38 76 18 46Z" fill="url(#fishGradient)" opacity=".9"/>
-      <circle cx="90" cy="38" r="4" fill="white"/>
-      <circle cx="91" cy="38" r="1.8" fill="#03182D"/>
-      <circle cx="44" cy="34" r="3" fill="#FF3EC5" opacity=".75"/>
-      <circle cx="34" cy="53" r="2.5" fill="#00C6FF" opacity=".75"/>
-    </svg>
-  </div>
-
-  <button class="mouse-toggle" id="mouse-toggle" type="button" aria-pressed="true" aria-label="Turn off mouse-follow artwork">
-    <span class="toggle-label">Interactive art</span>
-    <span class="toggle-track" aria-hidden="true"><span class="toggle-knob"></span></span>
-    <strong class="toggle-state">ON</strong>
+  <button
+    id="art-toggle"
+    class="art-toggle"
+    type="button"
+    aria-pressed="true"
+    aria-label="Turn interactive fish off"
+  >
+    <span>Interactive art</span>
+    <span class="switch" aria-hidden="true"><span class="knob"></span></span>
+    <strong class="state">ON</strong>
   </button>
+
+  <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
 </body>

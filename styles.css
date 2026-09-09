@@ -1,2 +1,221 @@
-:root{--deep:#03182D;--aqua:#00C6FF;--blue:#3A78FF;--purple:#A855F7;--magenta:#FF3EC5;--silver:#D1D5DB;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--deep);color:var(--white);font-family:Montserrat,Arial,sans-serif}.page-shell{min-height:100vh}.site-header{position:fixed;z-index:40;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:20px clamp(22px,5vw,72px);background:linear-gradient(180deg,rgba(3,24,45,.82),rgba(3,24,45,0));backdrop-filter:blur(3px)}.brand{display:flex;align-items:center;gap:11px;color:white;text-decoration:none}.brand-mark{font-size:38px;line-height:1;color:var(--aqua);text-shadow:0 0 18px rgba(0,198,255,.7)}.brand-copy{display:flex;flex-direction:column}.brand-copy strong{font-size:17px;letter-spacing:.16em}.brand-copy em{font-style:normal;color:#bf6fff}.brand-copy small{font-size:7px;letter-spacing:.27em;color:#dce9f8;margin-top:3px}.main-nav{display:flex;gap:26px}.main-nav a{color:#eef6ff;text-decoration:none;text-transform:uppercase;font-size:11px;letter-spacing:.15em;opacity:.9}.main-nav a:hover{color:var(--aqua)}.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden}.hero-image{position:absolute;inset:0;background:url('assets/mundo-vivo-bg.png') center/cover no-repeat;transform:scale(1.025)}.hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at center,rgba(3,24,45,.08),rgba(3,24,45,.36) 60%,rgba(3,24,45,.66)),linear-gradient(180deg,rgba(3,24,45,.1),rgba(3,24,45,.18) 60%,rgba(3,24,45,.78))}.hero-content{position:relative;z-index:5;text-align:center;width:min(850px,90vw);padding:120px 0 180px}.eyebrow{font-size:11px;letter-spacing:.34em;font-weight:500;color:#d8e6f5;text-transform:uppercase}.hero h1{font-size:clamp(44px,7vw,92px);line-height:.97;letter-spacing:-.045em;margin:17px 0 24px;font-weight:500;text-shadow:0 3px 28px rgba(0,0,0,.35)}.hero h1 span{background:linear-gradient(90deg,var(--aqua),var(--purple),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}.hero-copy{font-size:clamp(14px,1.6vw,19px);line-height:1.75;color:#e3edf8;font-weight:300}.lead-in{margin:28px 0 14px;font-size:13px;letter-spacing:.08em}.launch-form{margin:0 auto;display:flex;width:min(650px,100%);padding:5px;border-radius:999px;background:rgba(3,24,45,.62);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(12px);box-shadow:0 14px 50px rgba(0,0,0,.22)}.launch-form input{flex:1;min-width:0;background:transparent;border:0;outline:0;color:white;padding:0 20px;font:inherit;font-size:14px}.launch-form input::placeholder{color:#b8c6d7}.launch-form button{border:0;border-radius:999px;padding:15px 22px;cursor:pointer;color:white;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:11px;background:linear-gradient(90deg,var(--blue),var(--purple));box-shadow:0 5px 22px rgba(58,120,255,.33)}.form-message{min-height:22px;font-size:12px;color:#dce8f7}.feature-strip{position:absolute;z-index:6;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(4,1fr);background:rgba(2,14,29,.64);border-top:1px solid rgba(255,255,255,.12);backdrop-filter:blur(15px)}.feature-strip article{display:flex;gap:13px;align-items:center;padding:25px clamp(15px,2.5vw,36px);border-right:1px solid rgba(255,255,255,.1)}.feature-strip article:last-child{border-right:0}.feature-strip article>span{font-size:25px;color:#b871ff}.feature-strip strong,.feature-strip small{display:block}.feature-strip strong{text-transform:uppercase;letter-spacing:.08em;font-size:11px}.feature-strip small{margin-top:5px;color:#c5d3e2;font-size:10px;line-height:1.4}.content-section,.contact-section{padding:110px clamp(26px,9vw,140px);background:linear-gradient(135deg,#03182D,#071f39)}.content-section h2,.contact-section h2{font-size:clamp(34px,5vw,66px);margin:12px 0 25px;max-width:900px}.content-section>p:last-child{max-width:900px;color:#cbd9e8;line-height:1.8;font-size:18px}.contact-section{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;border-top:1px solid rgba(255,255,255,.08)}.contact-section a{color:var(--aqua);text-decoration:none;font-weight:600}.mouse-art{position:fixed;z-index:25;left:50%;top:50%;width:120px;height:90px;translate:-50% -50%;pointer-events:none;will-change:transform,opacity;filter:drop-shadow(0 10px 20px rgba(0,198,255,.28));transition:opacity .2s ease}.mouse-art svg{width:100%;height:100%;display:block}.mouse-toggle{position:fixed;z-index:70;right:18px;bottom:18px;display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(3,24,45,.78);color:white;backdrop-filter:blur(12px);cursor:pointer;font:inherit}.toggle-label,.toggle-state{font-size:11px}.toggle-track{position:relative;width:38px;height:22px;border-radius:999px;background:rgba(255,255,255,.72);transition:.2s}.toggle-knob{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:var(--deep);transition:.2s}.mouse-toggle[aria-pressed="true"] .toggle-knob{transform:translateX(16px)}.mouse-toggle[aria-pressed="false"] .toggle-track{background:rgba(255,255,255,.22)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:780px){.main-nav{gap:13px}.main-nav a{font-size:9px}.hero-content{padding-top:110px;padding-bottom:230px}.feature-strip{grid-template-columns:1fr 1fr}.feature-strip article{padding:16px}.launch-form{flex-direction:column;border-radius:24px;padding:7px}.launch-form input{min-height:48px}.launch-form button{width:100%}.contact-section{align-items:flex-start;flex-direction:column}.toggle-label{display:none}.mouse-art{width:92px;height:66px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mouse-art,.toggle-track,.toggle-knob{transition:none!important}}
+
+:root {
+  --deep-ocean: #03182D;
+  --aqua: #00C6FF;
+  --electric: #3A78FF;
+  --purple: #A855F7;
+  --magenta: #FF3EC5;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background: #00182a;
+  color: white;
+  font-family: Montserrat, Arial, sans-serif;
+}
+
+body { overflow-x: hidden; }
+
+.approved-page {
+  width: 100%;
+  background: #00182a;
+}
+
+.art-wrap {
+  position: relative;
+  width: min(100%, 907px);
+  margin: 0 auto;
+}
+
+.landing-art {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Functional form overlays the form already pictured in the approved design. */
+.launch-form {
+  position: absolute;
+  left: 4.7%;
+  top: 19.0%;
+  width: 38.6%;
+  height: 2.45%;
+  display: flex;
+  align-items: stretch;
+  z-index: 5;
+}
+
+.launch-form input {
+  width: 61%;
+  border: 0;
+  outline: 0;
+  padding: 0 14px;
+  border-radius: 999px 0 0 999px;
+  font-size: clamp(8px, 1.05vw, 12px);
+  color: #11233a;
+  background: rgba(255,255,255,.98);
+}
+
+.launch-form button {
+  width: 39%;
+  border: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  margin-left: -11px;
+  font-size: clamp(7px, .95vw, 11px);
+  font-weight: 800;
+  letter-spacing: .02em;
+  color: #08213c;
+  background: linear-gradient(90deg, #72e5ff, #b884ff);
+  box-shadow: 0 0 18px rgba(118, 205, 255, .4);
+}
+
+.launch-form button:hover { filter: brightness(1.06); }
+.launch-form button:focus-visible,
+.art-toggle:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hot {
+  position: absolute;
+  pointer-events: auto;
+  background: transparent;
+}
+.hot.vision { left: 26%; top: 1.45%; width: 8%; height: 1.5%; }
+.hot.experience { left: 34%; top: 1.45%; width: 10%; height: 1.5%; }
+.hot.care { left: 44%; top: 1.45%; width: 10%; height: 1.5%; }
+.hot.technology { left: 54%; top: 1.45%; width: 9%; height: 1.5%; }
+.hot.community { left: 63%; top: 1.45%; width: 9%; height: 1.5%; }
+.hot.partners { left: 72%; top: 1.45%; width: 7%; height: 1.5%; }
+
+/* Very small fish, intentionally tight to the cursor. */
+.mouse-fish {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: auto;
+  z-index: 9998;
+  pointer-events: none;
+  user-select: none;
+  transform: translate3d(-100px,-100px,0);
+  transform-origin: center;
+  filter: drop-shadow(0 0 5px rgba(0,198,255,.7));
+  transition: opacity 140ms ease;
+  will-change: transform;
+}
+
+.mouse-fish.hidden { opacity: 0; }
+
+.art-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 7px 11px 7px 14px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  color: white;
+  background: rgba(1, 25, 44, .82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.switch {
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  position: relative;
+  background: linear-gradient(90deg, var(--aqua), var(--purple));
+}
+
+.knob {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 160ms ease;
+}
+
+.art-toggle.off .switch { background: rgba(255,255,255,.25); }
+.art-toggle.off .knob { transform: translateX(-16px); }
+.state { min-width: 24px; font-size: 11px; }
+
+.form-message {
+  position: fixed;
+  left: 50%;
+  bottom: 72px;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(1, 25, 44, .92);
+  color: white;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+.form-message.show { opacity: 1; }
+
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+@media (pointer: coarse) {
+  .mouse-fish { display: none; }
+}
+
+@media (max-width: 650px) {
+  .art-wrap { width: 100%; }
+
+  /* Keep the approved artwork intact on mobile. */
+  .launch-form {
+    left: 4.7%;
+    top: 19%;
+    width: 39%;
+  }
+
+  .launch-form input { padding: 0 6px; }
+  .launch-form button { margin-left: -5px; }
+
+  .art-toggle {
+    right: 8px;
+    bottom: 8px;
+    transform: scale(.88);
+    transform-origin: right bottom;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mouse-fish { display: none; }
+  .knob, .form-message { transition: none; }
+}

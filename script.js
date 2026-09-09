@@ -1,59 +1,86 @@
-(() => {
-  const art = document.getElementById('mouse-art');
-  const toggle = document.getElementById('mouse-toggle');
-  const stateText = toggle.querySelector('.toggle-state');
-  const form = document.getElementById('launch-form');
-  const message = document.getElementById('form-message');
-  const storageKey = 'mv-mouse-follow-enabled';
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let enabled = localStorage.getItem(storageKey) !== 'false';
-  let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
-  const maxOffset = 170;
-  const lag = 0.1;
-  const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
-  function renderToggle() {
-    toggle.setAttribute('aria-pressed', String(enabled));
-    toggle.setAttribute('aria-label', `${enabled ? 'Turn off' : 'Turn on'} mouse-follow artwork`);
-    stateText.textContent = enabled ? 'ON' : 'OFF';
-    art.style.opacity = enabled ? '1' : '0';
+(() => {
+  const fish = document.getElementById("mouse-fish");
+  const toggle = document.getElementById("art-toggle");
+  const state = toggle.querySelector(".state");
+  const form = document.getElementById("launch-form");
+  const message = document.getElementById("form-message");
+
+  const storageKey = "mv-interactive-art-enabled";
+  let enabled = localStorage.getItem(storageKey) !== "false";
+
+  // Cursor target. Fish is intentionally only 8px right and 5px below the cursor.
+  let targetX = -100;
+  let targetY = -100;
+  let currentX = -100;
+  let currentY = -100;
+  let lastPointerX = 0;
+  let facing = 1;
+
+  const OFFSET_X = 8;
+  const OFFSET_Y = 5;
+  const LAG = 0.42; // tight tracking; much closer than the previous version
+
+  function updateToggle() {
+    toggle.classList.toggle("off", !enabled);
+    fish.classList.toggle("hidden", !enabled);
+    state.textContent = enabled ? "ON" : "OFF";
+    toggle.setAttribute("aria-pressed", String(enabled));
+    toggle.setAttribute(
+      "aria-label",
+      enabled ? "Turn interactive fish off" : "Turn interactive fish on"
+    );
   }
 
-  toggle.addEventListener('click', () => {
-    enabled = !enabled;
+  function setEnabled(next) {
+    enabled = !!next;
     localStorage.setItem(storageKey, String(enabled));
-    renderToggle();
-  });
+    updateToggle();
+  }
 
-  window.addEventListener('pointermove', (event) => {
-    if (!enabled || reduceMotion) return;
-    const dx = event.clientX - window.innerWidth / 2;
-    const dy = event.clientY - window.innerHeight / 2;
-    targetX = clamp(dx * 0.22, -maxOffset, maxOffset);
-    targetY = clamp(dy * 0.22, -maxOffset, maxOffset);
+  toggle.addEventListener("click", () => setEnabled(!enabled));
+
+  window.addEventListener("pointermove", (event) => {
+    if (!enabled) return;
+
+    targetX = event.clientX + OFFSET_X;
+    targetY = event.clientY + OFFSET_Y;
+
+    if (event.clientX < lastPointerX - 1) facing = -1;
+    else if (event.clientX > lastPointerX + 1) facing = 1;
+
+    lastPointerX = event.clientX;
   }, { passive: true });
 
   function animate() {
-    if (enabled && !reduceMotion) {
-      currentX += (targetX - currentX) * lag;
-      currentY += (targetY - currentY) * lag;
-      art.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+    if (enabled) {
+      currentX += (targetX - currentX) * LAG;
+      currentY += (targetY - currentY) * LAG;
+
+      // Flip the small fish according to cursor direction.
+      fish.style.transform =
+        `translate3d(${currentX}px, ${currentY}px, 0) scaleX(${facing})`;
     }
+
     requestAnimationFrame(animate);
   }
 
-  form.addEventListener('submit', (event) => {
+  // Static GitHub Pages cannot store launch-list submissions by itself.
+  // This keeps the UI functional until Airtable / Formspree / Mailchimp is connected.
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const email = form.email.value.trim();
-    if (!email || !form.email.checkValidity()) {
-      message.textContent = 'Please enter a valid email address.';
+    const input = form.querySelector('input[type="email"]');
+
+    if (!input.checkValidity()) {
+      input.reportValidity();
       return;
     }
-    // GitHub Pages is static. Replace this demo handler with Formspree/Mailchimp/Brevo/API endpoint for production.
-    message.textContent = 'Thank you — your email is ready to be connected to the launch-list service.';
-    form.reset();
+
+    message.textContent = "Thank you — launch-list connection is ready to be linked.";
+    message.classList.add("show");
+    setTimeout(() => message.classList.remove("show"), 3200);
   });
 
-  renderToggle();
+  updateToggle();
   requestAnimationFrame(animate);
 })();

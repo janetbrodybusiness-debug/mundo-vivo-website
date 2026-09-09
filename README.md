@@ -1,24 +1,34 @@
-# Mundo Vivo GitHub Website Package
+# Mundo Vivo — Approved Landing Page GitHub Package v3
 
-Static GitHub Pages-ready landing website for Mundo Vivo.
+This version is designed to reproduce the **approved Mundo Vivo landing-page artwork** as closely as possible.
 
-## Included
-- `index.html` — full website structure
-- `styles.css` — responsive Mundo Vivo styling
-- `script.js` — mouse-follow animation, ON/OFF toggle, local preference memory, signup-form front-end validation
-- `assets/mundo-vivo-bg.png` — underwater landing artwork
+## What changed
 
-## Mouse-follow option
-The interactive artwork is ON by default. Visitors can switch it ON/OFF using the control in the bottom-right corner. The choice is remembered with `localStorage`.
+- Approved full landing-page artwork is now the visual base.
+- Mundo Vivo logo is visible as part of the approved artwork.
+- The previous simplified mouse-follow fish has been replaced.
+- The cursor follower now uses the branded blue/purple Mundo Vivo fish artwork.
+- Fish size reduced to approximately 30 px.
+- Fish follows only a few pixels away from the mouse.
+- ON/OFF Interactive Art toggle retained.
+- Visitor ON/OFF preference is remembered in localStorage.
+- Real email input/button is positioned over the approved signup area.
+- Static GitHub Pages remains compatible; no npm, React or build process required.
 
-To replace the temporary SVG fish with the final approved transparent artwork:
-1. Put the PNG in `assets/`, e.g. `assets/interactive-mouse-art.png`.
-2. Replace the SVG inside `<div id="mouse-art">` in `index.html` with:
-   `<img src="assets/interactive-mouse-art.png" alt="" />`
-3. Add `.mouse-art img{width:100%;height:100%;object-fit:contain}` to `styles.css`.
+## Updating the current GitHub repository
 
-## Launch-list form
-GitHub Pages is static and cannot save email addresses by itself. The form is visually complete and validated, but production email capture must be connected to Formspree, Mailchimp, Brevo, Airtable automation/API, or another backend endpoint.
+1. Unzip this package.
+2. In GitHub open `mundo-vivo-website`.
+3. Upload/replace:
+   - `index.html`
+   - `styles.css`
+   - `script.js`
+   - `404.html`
+   - the full `assets` folder
+4. Commit changes to `main`.
+5. GitHub Pages will automatically redeploy.
 
-## GitHub Pages deployment
-This project requires no build process, npm, React, or server. Upload the files to a GitHub repository and publish from the repository root with GitHub Pages.
+## Launch-list storage
+
+The form currently validates and responds on the page, but GitHub Pages cannot store emails by itself.
+Connect the form to Airtable, Formspree, Brevo, Mailchimp or another backend before collecting public signups.
