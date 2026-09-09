@@ -9,37 +9,149 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <main class="site" id="top">
-    <img class="landing" src="./assets/landing-full.webp" alt="Mundo Vivo — Worlds Beyond Imagination landing page">
-
-    <nav aria-label="Primary navigation">
-      <a class="nav vision" href="#top">Our Vision</a>
-      <a class="nav experience" href="#experience">The Experience</a>
-      <a class="nav care" href="#care">Care &amp; Guidance</a>
-      <a class="nav technology" href="#technology">Technology</a>
-      <a class="nav community" href="#community">Community</a>
-      <a class="nav partners" href="#partners">Partners</a>
-      <a class="nav join" href="#launch">Join the List</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Mundo Vivo home">
+      <span class="brand-mark">◈</span>
+      <span class="brand-copy"><strong>Mundo Vivo</strong><small>WORLDS BEYOND IMAGINATION</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#vision">Our Vision</a>
+      <a href="#experience">The Experience</a>
+      <a href="#care">Care &amp; Guidance</a>
+      <a href="#technology">Technology</a>
+      <a href="#community">Community</a>
+      <a href="#partners">Partners</a>
     </nav>
+    <a class="header-cta" href="#launch">JOIN THE LIST</a>
+  </header>
 
-    <form id="launch" class="launch-form">
-      <label class="sr-only" for="email">Email address</label>
-      <input id="email" name="email" type="email" placeholder="Enter your email address" required>
-      <button type="submit">JOIN THE LAUNCH LIST →</button>
-    </form>
-    <div id="status" class="status" aria-live="polite"></div>
+  <main id="top">
+    <section class="hero" id="vision">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">A MORE IMAGINATIVE AQUARIUM TOMORROW</p>
+          <h1>The aquarium<br>is about to <em>evolve.</em></h1>
+          <p class="hero-lead">A new kind of aquarium experience is coming — where extraordinary creatures, captivating landscapes and endless possibilities come together.</p>
+          <p class="hero-tag">SAME OCEAN. A BRIGHTER TOMORROW.</p>
+          <form id="launch" class="launch-form">
+            <label class="sr-only" for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+            <button type="submit">JOIN THE LAUNCH LIST →</button>
+          </form>
+          <div id="status" class="status" aria-live="polite"></div>
+          <p class="launch-note">✉ Be the first to know. Get early news, new reveals and exclusive opportunities.</p>
+        </div>
 
-    <a id="experience" class="hotspot care-button" href="#care">The Care Experience</a>
-    <a id="technology" class="hotspot labs-button" href="#technology">See Our Approach</a>
-    <a id="care" class="hotspot standards-button" href="#care">Our Standards</a>
-    <a id="community" class="hotspot community-button" href="#community">Join the Community</a>
-    <a id="partners" class="hotspot supplier-button" href="mailto:hello@mundovivo.com.au?subject=Mundo%20Vivo%20Supplier%20Enquiry">Supplier Enquiry</a>
+        <div class="hero-mundi" aria-label="Meet Mundi">
+          <div class="hero-mundi-orb">
+            <img src="./assets/mundi.webp" alt="Mundi, Mundo Vivo's aquatic guide">
+          </div>
+          <div class="mundi-note">Hi!<br>I’m Mundi.<br>I’ll guide you<br>on the journey. ♡</div>
+          <div class="hero-words">EXPLORE —<br>CREATE —<br>BELONG —</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars" id="experience" aria-label="Mundo Vivo experience pillars">
+      <article><span class="pillar-icon">◒</span><h3>A BETTER AQUARIUM EXPERIENCE</h3><p>More than decoration.<br>A living world.</p></article>
+      <article><span class="pillar-icon">◇</span><h3>EXTRAORDINARY CREATURES</h3><p>Unique designs inspired<br>by the beauty of the ocean.</p></article>
+      <article><span class="pillar-icon">⌁</span><h3>CAPTIVATING LANDSCAPES</h3><p>Environments that<br>feel alive.</p></article>
+      <article><span class="pillar-icon">✦</span><h3>ENDLESS POSSIBILITIES</h3><p>Your Mundo can grow<br>and change with you.</p></article>
+      <article><span class="pillar-icon">◎</span><h3>A GROWING COMMUNITY</h3><p>Real people.<br>Amazing Mundos.</p></article>
+    </section>
+
+    <section class="feature feature-care" id="care">
+      <div class="feature-art feature-art-mundi">
+        <img src="./assets/mundi.webp" alt="Mundi">
+      </div>
+      <div class="feature-copy">
+        <p class="eyebrow">A WORLD OF CARE</p>
+        <h2>Designed with you<br>and your aquatic life in mind.</h2>
+        <p>We’re creating an aquarium experience that’s easy to enjoy and rewarding to maintain, with helpful guidance, practical care tips and ongoing support — so you can spend more time enjoying your underwater world.</p>
+        <a class="outline-btn" href="#care">THE CARE EXPERIENCE →</a>
+      </div>
+      <div class="glass-card">
+        <div class="mini-tank"><span>Healthy Mundos<br>Happier Lives! ♡</span></div>
+      </div>
+    </section>
+
+    <section class="feature labs" id="technology">
+      <div class="feature-copy wide">
+        <p class="eyebrow">INNOVATION IN PROGRESS</p>
+        <h2>Mundo Labs</h2>
+        <p>Mundo Labs are working tirelessly to bring you the latest innovations, combining creative design, modern manufacturing and real-world testing. We’re exploring new ways to make aquariums more inspiring, engaging and enjoyable for everyone.</p>
+        <a class="outline-btn" href="#technology">SEE OUR APPROACH →</a>
+      </div>
+      <div class="lab-visual">
+        <div class="lab-screen">MUNDO<br>LABS</div>
+        <div class="lab-rock">◭</div>
+      </div>
+      <ul class="icon-list">
+        <li><span>💡</span><strong>IDEAS TODAY</strong><small>BRIGHTER TOMORROWS</small></li>
+        <li><span>⚙</span><strong>REAL-WORLD TESTING</strong><small>AND VALIDATION</small></li>
+        <li><span>⚗</span><strong>TURNING IMAGINATION</strong><small>INTO REALITY</small></li>
+      </ul>
+    </section>
+
+    <section class="standards">
+      <div class="standards-copy">
+        <p class="eyebrow">SAFETY &amp; ENGINEERING STANDARDS</p>
+        <h2>Because life matters.</h2>
+        <p>We’re committed to responsible design, quality materials and rigorous testing to help ensure our products are safe for aquatic environments. Aquarium safety and the wellbeing of aquatic life are at the heart of everything we do.</p>
+        <a class="outline-btn" href="#standards">OUR STANDARDS →</a>
+      </div>
+      <div class="standard-grid" id="standards">
+        <article><span>♡</span><h3>AQUATIC LIFE<br>IN MIND</h3><p>We design with wellbeing as a priority.</p></article>
+        <article><span>✓</span><h3>QUALITY<br>MATERIALS</h3><p>Carefully selected and tested.</p></article>
+        <article><span>◉</span><h3>REAL-WORLD<br>VALIDATION</h3><p>Performance you can rely on.</p></article>
+        <article><span>◎</span><h3>ONGOING<br>IMPROVEMENT</h3><p>Always learning. Always evolving.</p></article>
+      </div>
+    </section>
+
+    <section class="community" id="community">
+      <div class="community-collage">
+        <div class="snapshot"><span>Real people.<br>Real Mundos. ♡</span></div>
+        <div class="snapshot snapshot-mundi"><img src="./assets/mundi.webp" alt=""><span>Inspiration<br>everywhere. ♡</span></div>
+      </div>
+      <div class="feature-copy">
+        <p class="eyebrow">A GROWING COMMUNITY</p>
+        <h2>Share. Inspire. Belong.</h2>
+        <p>A community of aquarium lovers, dreamers and explorers. Share your setups, ideas and discoveries. Be part of something extraordinary.</p>
+        <a class="outline-btn" href="#community">JOIN THE COMMUNITY →</a>
+      </div>
+      <div class="community-mundi"><img src="./assets/mundi.webp" alt=""><p>Different people.<br>Different Mundos.<br>One ocean. ♡</p></div>
+    </section>
+
+    <section class="partners" id="partners">
+      <div class="feature-copy">
+        <p class="eyebrow">PARTNERS &amp; SUPPLIERS</p>
+        <h2>Let’s create what’s next.</h2>
+        <p>We’re always looking to work with trusted suppliers who share our commitment to quality, innovation and the aquatic hobby. If you have materials, components or services that could support Mundo Vivo, we’d love to hear from you.</p>
+        <a class="outline-btn" href="mailto:hello@mundovivo.com.au?subject=Mundo%20Vivo%20Supplier%20Enquiry">SUPPLIER ENQUIRY →</a>
+      </div>
+      <div class="materials-visual"><div></div><div></div><div></div><span>Better materials.<br>Brighter worlds.</span></div>
+      <ul class="partner-list">
+        <li>✓ Material samples</li>
+        <li>✓ Component suppliers</li>
+        <li>✓ Manufacturing partners</li>
+        <li>✓ Finishes and treatments</li>
+        <li>✓ Innovative solutions</li>
+      </ul>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="brand footer-brand"><span class="brand-mark">◈</span><span class="brand-copy"><strong>Mundo Vivo</strong><small>WORLDS BEYOND IMAGINATION</small></span></div>
+    <p>A MORE IMAGINATIVE AQUARIUM TOMORROW</p>
+    <nav><a href="mailto:hello@mundovivo.com.au">Contact</a><a href="#privacy">Privacy</a><a href="#community">Follow the Journey</a></nav>
+    <div class="socials">◎ ▶ f ♪</div>
+  </footer>
 
   <div class="mundi-follower" id="mundiFollower" aria-hidden="true">
     <img src="./assets/mundi.webp" alt="">
   </div>
-
   <button id="motionToggle" class="motion-toggle" type="button" aria-pressed="true" aria-label="Turn Mundi motion off">Mundi Motion ON</button>
 
   <script src="./script.js"></script>
