@@ -1,20 +1,3 @@
-MUNDO VIVO — CLEAN GITHUB PAGES UPLOAD
+Mundo Vivo GitHub Pages website.
 
-Upload these files/folders to the ROOT of the GitHub repository:
-
-index.html
-styles.css
-script.js
-assets/
-  landing-page.png
-  mundo-vivo-logo.png
-  mundi-mouse.gif
-
-IMPORTANT:
-Do not upload the outer Mundo_Vivo_CLEAN_UPLOAD folder itself.
-The files above must appear directly at repository root.
-
-GitHub Pages:
-Settings > Pages > Deploy from a branch > main > /(root)
-
-The Mundi mouse animation uses the original Mundi_Animation_All_States.gif.
+The full approved landing-page artwork is stored at assets/landing-full.webp and displayed by index.html. Interactive hotspots, launch-list UI, and the Mundi motion toggle are layered over the approved visual.
