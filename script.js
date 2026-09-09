@@ -1,4 +1,3 @@
-
 // Launch list UI hook.
 // Replace the console call with a secure server-side endpoint before launch.
 // Never expose Airtable credentials in browser JavaScript.
@@ -19,7 +18,7 @@ launchForm?.addEventListener('submit', (event) => {
   launchForm.reset();
 });
 
-// Supplied Mundo Vivo fish follows the mouse with a soft underwater lag.
+// Mundo Vivo fish follows the pointer with a soft underwater lag.
 (() => {
   const fish = document.getElementById('mundoCursor');
   const toggle = document.getElementById('motionToggle');
@@ -27,14 +26,17 @@ launchForm?.addEventListener('submit', (event) => {
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const coarse = matchMedia('(hover:none), (pointer:coarse)');
-  if (reduced.matches || coarse.matches) return;
+  const stored = localStorage.getItem('mv-motion');
 
-  let enabled = localStorage.getItem('mv-motion') !== 'off';
-  let tx = innerWidth * .72;
-  let ty = innerHeight * .36;
+  // Respect reduced-motion by default, while still allowing the visitor to opt in.
+  let enabled = stored ? stored === 'on' : !reduced.matches;
+  let tx = innerWidth * 0.72;
+  let ty = innerHeight * 0.36;
   let x = tx;
   let y = ty;
   let raf = 0;
+
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
   const sync = () => {
     document.body.classList.toggle('motion-off', !enabled);
@@ -48,24 +50,46 @@ launchForm?.addEventListener('submit', (event) => {
       raf = 0;
       return;
     }
-    x += (tx - x) * .075;
-    y += (ty - y) * .075;
-    fish.style.transform = `translate3d(${x - fish.offsetWidth*.48}px, ${y - fish.offsetHeight*.44}px, 0)`;
+
+    x += (tx - x) * 0.085;
+    y += (ty - y) * 0.085;
+
+    const offsetX = fish.offsetWidth * 0.48;
+    const offsetY = fish.offsetHeight * 0.44;
+    fish.style.transform = `translate3d(${x - offsetX}px, ${y - offsetY}px, 0)`;
     raf = requestAnimationFrame(loop);
   };
 
-  addEventListener('pointermove', (e) => {
-    if (e.pointerType === 'touch') return;
-    tx = Math.max(45, Math.min(innerWidth - 45, e.clientX + 34));
-    ty = Math.max(35, Math.min(innerHeight - 35, e.clientY + 18));
+  const moveTarget = (clientX, clientY) => {
+    tx = clamp(clientX + 30, 45, innerWidth - 45);
+    ty = clamp(clientY + 16, 35, innerHeight - 35);
     if (enabled && !raf) raf = requestAnimationFrame(loop);
-  }, {passive:true});
+  };
+
+  addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch') return;
+    moveTarget(event.clientX, event.clientY);
+  }, { passive: true });
+
+  // Keep the artwork inside the viewport after resize/orientation changes.
+  addEventListener('resize', () => {
+    tx = clamp(tx, 45, innerWidth - 45);
+    ty = clamp(ty, 35, innerHeight - 35);
+  }, { passive: true });
 
   toggle.addEventListener('click', () => {
     enabled = !enabled;
     localStorage.setItem('mv-motion', enabled ? 'on' : 'off');
     sync();
-    if (enabled && !raf) raf = requestAnimationFrame(loop);
+
+    if (enabled && !raf) {
+      // On touch-only devices the fish remains a gentle static decorative element.
+      if (coarse.matches) {
+        tx = innerWidth * 0.78;
+        ty = Math.min(innerHeight * 0.32, 330);
+      }
+      raf = requestAnimationFrame(loop);
+    }
   });
 
   sync();
