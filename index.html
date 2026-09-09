@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#001522">
+  <title>Mundo Vivo — Worlds Beyond Imagination</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="site" id="top">
+    <img class="landing" src="./assets/landing-page.png" alt="Mundo Vivo landing page">
+
+    <a class="logo" href="#top" aria-label="Mundo Vivo home">
+      <img src="./assets/mundo-vivo-logo.png" alt="Mundo Vivo — Worlds Beyond Imagination">
+    </a>
+
+    <nav aria-label="Primary navigation">
+      <a class="nav vision" href="#top">Our Vision</a>
+      <a class="nav experience" href="#experience">The Experience</a>
+      <a class="nav care" href="#care">Care &amp; Guidance</a>
+      <a class="nav technology" href="#technology">Technology</a>
+      <a class="nav community" href="#community">Community</a>
+      <a class="nav partners" href="#partners">Partners</a>
+      <a class="nav join" href="#launch">Join the List</a>
+    </nav>
+
+    <form id="launch" class="launch-form">
+      <label class="sr-only" for="email">Email address</label>
+      <input id="email" name="email" type="email" placeholder="Enter your email address" required>
+      <button type="submit">JOIN THE LAUNCH LIST →</button>
+    </form>
+    <div id="status" class="status" aria-live="polite"></div>
+
+    <a id="experience" class="hotspot care-button" href="#care">The Care Experience</a>
+    <a id="technology" class="hotspot labs-button" href="#technology">See Our Approach</a>
+    <a id="care" class="hotspot standards-button" href="#care">Our Standards</a>
+    <a id="community" class="hotspot community-button" href="#community">Join the Community</a>
+    <a id="partners" class="hotspot supplier-button"
+       href="mailto:hello@mundovivo.com.au?subject=Mundo%20Vivo%20Supplier%20Enquiry">Supplier Enquiry</a>
+  </main>
+
+  <div class="mundi-follower" id="mundiFollower" aria-hidden="true">
+    <img src="./assets/mundi-mouse.gif" alt="">
+  </div>
+
+  <button id="motionToggle" class="motion-toggle" type="button" aria-pressed="true">
+    Mundi Motion ON
+  </button>
+
+  <script src="./script.js"></script>
+</body>
+</html>

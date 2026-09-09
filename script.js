@@ -1,0 +1,50 @@
+const form=document.getElementById('launch');
+const status=document.getElementById('status');
+form?.addEventListener('submit',e=>{
+  e.preventDefault();
+  const email=String(new FormData(form).get('email')||'').trim();
+  if(!email.includes('@')){status.textContent='Please enter a valid email address.';return;}
+  status.textContent="You're on the launch list.";
+  form.reset();
+});
+
+(()=>{
+  const follower=document.getElementById('mundiFollower');
+  const toggle=document.getElementById('motionToggle');
+  if(!follower||!toggle)return;
+  if(matchMedia('(hover:none),(pointer:coarse)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+
+  let enabled=localStorage.getItem('mundoMundiMotion')!=='off';
+  let tx=innerWidth*.7,ty=innerHeight*.35,x=tx,y=ty,raf=0;
+
+  const sync=()=>{
+    document.body.classList.toggle('motion-off',!enabled);
+    toggle.setAttribute('aria-pressed',String(enabled));
+    toggle.textContent=enabled?'Mundi Motion ON':'Mundi Motion OFF';
+  };
+
+  const animate=()=>{
+    if(!enabled){raf=0;return;}
+    x+=(tx-x)*.105;
+    y+=(ty-y)*.105;
+    follower.style.transform=`translate3d(${x-follower.offsetWidth*.42}px,${y-follower.offsetHeight*.48}px,0)`;
+    raf=requestAnimationFrame(animate);
+  };
+
+  addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch')return;
+    tx=Math.max(60,Math.min(innerWidth-60,e.clientX+44));
+    ty=Math.max(50,Math.min(innerHeight-50,e.clientY+20));
+    if(enabled&&!raf)raf=requestAnimationFrame(animate);
+  },{passive:true});
+
+  toggle.addEventListener('click',()=>{
+    enabled=!enabled;
+    localStorage.setItem('mundoMundiMotion',enabled?'on':'off');
+    sync();
+    if(enabled&&!raf)raf=requestAnimationFrame(animate);
+  });
+
+  sync();
+  if(enabled)raf=requestAnimationFrame(animate);
+})();
